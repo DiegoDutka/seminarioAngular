@@ -1,0 +1,28 @@
+<h1 class="text-white bg-secondary">Clases disponibles</h1>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">Actividad</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Dias</th>
+            <th scope="col">Horario</th>
+            <th scope="col">Duracion</th>
+            <th scope="col">Cupos Disponibles</th>
+            <th></th>
+            <th></th>
+    
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let clase of clase" [ngClass]="{cupos: clase.cupodisponible <= 4}" >
+            <td>{{clase.nombre}}</td>
+            <td>{{clase.docente}}</td>
+            <td>{{clase.dias}}</td>
+            <td>{{clase.horario }}</td>
+            <td>{{clase.duracion}}</td>
+            <td >{{clase.cupodisponible}} </td>
+            <td ><span class="badge rounded-pill text-bg-danger" *ngIf="clase.cupodisponible <= 4"> Quedan pocos lugares</span></td>
+            <td><button type="button" class="btn btn-outline-primary" (click)="addToCart(clase)">Inscribite</button></td>
+        </tr>
+    </tbody>
+</table>
